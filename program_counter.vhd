@@ -4,6 +4,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity program_counter is
   Port( 
     clk: in std_logic;
+    reset: in std_logic;
     new_address: in std_logic_vector(15 downto 0);
     out_address: out std_logic_vector(15 downto 0)
   );
@@ -17,7 +18,11 @@ begin
     update_address: process(clk)
     begin
         if rising_edge(clk) then
-            aux <= new_address;
+            if reset = '1' then
+                aux <= x"0000";
+            else
+                aux <= new_address;
+            end if;
         end if;
     end process;
     out_address <= aux;

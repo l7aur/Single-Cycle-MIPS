@@ -4,6 +4,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity MIPS is
     Port (
         clk: in std_logic;
+        reset: in std_logic;
         data_address_in: in std_logic_vector(15 downto 0);
         data_out: out std_logic_vector(15 downto 0);
         reg0_data_out: out std_logic_vector(15 downto 0);
@@ -52,6 +53,7 @@ end component;
 component data_memory is
   Port (  
   clk: in std_logic;
+  reset: in std_logic;
   memory_write: in std_logic;
   write_data: in std_logic_vector(15 downto 0);
   address: in std_logic_vector(15 downto 0);
@@ -94,6 +96,7 @@ end component;
 component program_counter is
   Port( 
     clk: in std_logic;
+    reset: in std_logic;
     new_address: in std_logic_vector(15 downto 0);
     out_address: out std_logic_vector(15 downto 0)
   );
@@ -101,6 +104,7 @@ end component;
 component register_file is
   Port (
   clk: in std_logic;
+  reset: in std_logic;
   register_write: in std_logic;
   read_address_1: in std_logic_vector(2 downto 0);
   read_address_2: in std_logic_vector(2 downto 0);
@@ -171,11 +175,13 @@ begin
     
     c1: program_counter port map(
         clk => clk,
+        reset => reset,
         new_address => aux_1,
         out_address => aux_2
         );
     c2: register_file port map(
         clk => clk,
+        reset => reset,
         register_write => q_9,
         read_address_1 => aux_3(12 downto 10),
         read_address_2 => aux_3(9 downto 7),
@@ -237,6 +243,7 @@ begin
         );
         c8: data_memory port map(
         clk => clk,
+        reset => reset,
         memory_write => q_7,
         write_data => aux_9,
         address => aux_11,

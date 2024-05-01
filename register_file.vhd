@@ -5,6 +5,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity register_file is
   Port (
   clk: in std_logic;
+  reset: in std_logic;
   register_write: in std_logic;
   read_address_1: in std_logic_vector(2 downto 0);
   read_address_2: in std_logic_vector(2 downto 0);
@@ -33,11 +34,22 @@ begin
     writing_process: process(clk)
     begin
         if rising_edge(clk) then
-            if register_write = '1' then
-                reg_data(TO_INTEGER(UNSIGNED(write_address))) <= write_data;
+            if reset = '1' then
+                reg_data(0) <= x"0000";
+                reg_data(1) <= x"0000";
+                reg_data(2) <= x"0000";
+                reg_data(3) <= x"0000";
+                reg_data(4) <= x"0000";
+                reg_data(5) <= x"0000";
+                reg_data(6) <= x"0000";
+                reg_data(7) <= x"0000";
+            else
+                if register_write = '1' then
+                    reg_data(TO_INTEGER(UNSIGNED(write_address))) <= write_data;
+                end if;
             end if;
         end if;
-    end process;    
+    end process;
     
     read_data_1 <= reg_data(TO_INTEGER(UNSIGNED(read_address_1))); 
     read_data_2 <= reg_data(TO_INTEGER(UNSIGNED(read_address_2)));
