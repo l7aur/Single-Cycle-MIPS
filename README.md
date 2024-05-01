@@ -26,7 +26,9 @@ Project for the Computer Architecture course
     - 7 acts as the reset switch: takes the MIPS back to the initial stage.
     - 8 does nothing
     - 9 to 16 selects the address in the data memory whose contents are displayed.
+      
 _Note 1: The bus sizes of this MIPS processor allow for a data memory and an instruction memory of up to 65536 (2^16) locations. This design is limited to 256 locations because there is no need for such a huge space of addresses and my computer found the design somehow unsinthesizable (too big of a number)._
+
 _Note 2: For the processor to work in a full 16-bit mode the roles of the switches has to be modified (all 16 switches would be needed to navigate through a memory of size 2^16 for example)._
 
 ![image](https://github.com/l7aur/Single-Cycle-MIPS/assets/81981519/8b40b451-72f8-4635-ad34-fe9172a5d8d4)
