@@ -32,3 +32,8 @@ _Note 1: The bus sizes of this MIPS processor allow for a data memory and an ins
 _Note 2: For the processor to work in a full 16-bit mode the roles of the switches has to be modified (all 16 switches would be needed to navigate through a memory of size 2^16 for example)._
 
 ![image](https://github.com/l7aur/Single-Cycle-MIPS/assets/81981519/8b40b451-72f8-4635-ad34-fe9172a5d8d4)
+
+![Screenshot 2024-04-21 112104](https://github.com/l7aur/Single-Cycle-MIPS/assets/81981519/660ba878-d82e-4da9-af25-46823d64db49)
+
+
+
