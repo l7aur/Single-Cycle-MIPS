@@ -65,7 +65,7 @@ begin
             when "100" => --branch on equal
                 reg_dest <= '0'; 
                 ext_op <= '0';
-                ALU_src <= '1';
+                ALU_src <= '0';
                 branch <= '1';
                 jump <= '0';
                 ALU_op <= '0';
@@ -85,7 +85,7 @@ begin
             when "110" => --branch on greater than 0
                 reg_dest <= '0'; 
                 ext_op <= '0';
-                ALU_src <= '1';
+                ALU_src <= '0';
                 branch <= '1';
                 jump <= '0';
                 ALU_op <= '0';

@@ -31,6 +31,7 @@ component ALU is
     operand_2: in std_logic_vector(15 downto 0);
     shift_amount: in std_logic;
     ALU_control_signal: in std_logic_vector(3 downto 0);
+    branch: in std_logic;
     result: out std_logic_vector(15 downto 0);
     zero: out std_logic
   );
@@ -229,6 +230,7 @@ begin
         operand_2 => aux_16,
         shift_amount => q_10,
         ALU_control_signal => aux_14,
+        branch => q_4,
         result => aux_11,
         zero => q_11
         );
@@ -260,7 +262,7 @@ begin
         selection_signal => q_8,
         output => aux_13
         );
-        c10: aux_7 <= q_4 AND q_11;
+        c10: aux_7 <= q_11;
         c11: ALU_control port map(
         function_code => aux_3(3 downto 0),
         ALU_op => q_6,
