@@ -9,6 +9,7 @@ entity main_control is
     ALU_src: out std_logic;
     branch: out std_logic;
     branch_ongte: out std_logic;
+    andi_signal: out std_logic;
     jump: out std_logic;
     ALU_op: out std_logic;
     mem_write: out std_logic;
@@ -29,6 +30,7 @@ begin
                 ALU_src <= '0';
                 branch <= '0';
                 branch_ongte <= '0';
+                andi_signal <= '0';
                 jump <= '0';
                 ALU_op <= '1';
                 mem_write <= '0';
@@ -40,6 +42,7 @@ begin
                 ALU_src <= '1';
                 branch <= '0'; 
                 branch_ongte <= '0';
+                andi_signal <= '0';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '0';
@@ -51,6 +54,7 @@ begin
                 ALU_src <= '1';
                 branch <= '0';
                 branch_ongte <= '0';
+                andi_signal <= '0';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '0';
@@ -62,6 +66,7 @@ begin
                 ALU_src <= '1';
                 branch <= '0';
                 branch_ongte <= '0';
+                andi_signal <= '0';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '1';
@@ -73,6 +78,7 @@ begin
                 ALU_src <= '0';
                 branch <= '1';
                 branch_ongte <= '0';
+                andi_signal <= '0';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '0';
@@ -84,6 +90,7 @@ begin
                 ALU_src <= '1';
                 branch <= '0';
                 branch_ongte <= '0';
+                andi_signal <= '1';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '0';
@@ -95,6 +102,7 @@ begin
                 ALU_src <= '0';
                 branch <= '0';
                 branch_ongte <= '1';
+                andi_signal <= '0';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '0';
@@ -106,6 +114,7 @@ begin
                 ALU_src <= '0';
                 branch <= '0';
                 branch_ongte <= '0';
+                andi_signal <= '0';
                 jump <= '1';
                 ALU_op <= '0';
                 mem_write <= '0';

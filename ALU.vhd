@@ -10,6 +10,7 @@ entity ALU is
     ALU_control_signal: in std_logic_vector(3 downto 0);
     branch: in std_logic;
     branch_ongte: in std_logic;
+    andi_signal: in std_logic;
     result: out std_logic_vector(15 downto 0);
     zero: out std_logic
   );
@@ -68,6 +69,8 @@ begin
                     end if;
                 when others => intermediary_result <= operand_1 xor operand_2;
             end case;
+        elsif andi_signal = '1' then
+            intermediary_result <= operand_1 AND operand_2;
         else
             intermediary_result <= operand_1 + operand_2; 
         end if;
