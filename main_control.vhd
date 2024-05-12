@@ -8,6 +8,7 @@ entity main_control is
     ext_op: out std_logic;
     ALU_src: out std_logic;
     branch: out std_logic;
+    branch_ongte: out std_logic;
     jump: out std_logic;
     ALU_op: out std_logic;
     mem_write: out std_logic;
@@ -27,6 +28,7 @@ begin
                 ext_op <= '0';
                 ALU_src <= '0';
                 branch <= '0';
+                branch_ongte <= '0';
                 jump <= '0';
                 ALU_op <= '1';
                 mem_write <= '0';
@@ -36,7 +38,8 @@ begin
                 reg_dest <= '0'; 
                 ext_op <= '0';
                 ALU_src <= '1';
-                branch <= '0';
+                branch <= '0'; 
+                branch_ongte <= '0';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '0';
@@ -47,6 +50,7 @@ begin
                 ext_op <= '0';
                 ALU_src <= '1';
                 branch <= '0';
+                branch_ongte <= '0';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '0';
@@ -57,6 +61,7 @@ begin
                 ext_op <= '0';
                 ALU_src <= '1';
                 branch <= '0';
+                branch_ongte <= '0';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '1';
@@ -67,6 +72,7 @@ begin
                 ext_op <= '0';
                 ALU_src <= '0';
                 branch <= '1';
+                branch_ongte <= '0';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '0';
@@ -77,6 +83,7 @@ begin
                 ext_op <= '0';
                 ALU_src <= '1';
                 branch <= '0';
+                branch_ongte <= '0';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '0';
@@ -86,7 +93,8 @@ begin
                 reg_dest <= '0'; 
                 ext_op <= '0';
                 ALU_src <= '0';
-                branch <= '1';
+                branch <= '0';
+                branch_ongte <= '1';
                 jump <= '0';
                 ALU_op <= '0';
                 mem_write <= '0';
@@ -97,6 +105,7 @@ begin
                 ext_op <= '0';
                 ALU_src <= '0';
                 branch <= '0';
+                branch_ongte <= '0';
                 jump <= '1';
                 ALU_op <= '0';
                 mem_write <= '0';

@@ -9,6 +9,7 @@ entity ALU is
     shift_amount: in std_logic;
     ALU_control_signal: in std_logic_vector(3 downto 0);
     branch: in std_logic;
+    branch_ongte: in std_logic;
     result: out std_logic_vector(15 downto 0);
     zero: out std_logic
   );
@@ -20,10 +21,16 @@ signal intermediary_result: std_logic_vector(15 downto 0);
 
 begin
     result <= intermediary_result;
-    zero_process: process(branch, operand_1, operand_2)
+    zero_process: process(branch, branch_ongte, operand_1, operand_2)
     begin
         if branch = '1' then
             if operand_1 = operand_2 then
+                zero <= '1';
+            else
+                zero <= '0';
+            end if;
+        elsif branch_ongte = '1' then
+            if operand_1 - operand_2 >= 0 then
                 zero <= '1';
             else
                 zero <= '0';

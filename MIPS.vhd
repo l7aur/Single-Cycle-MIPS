@@ -32,6 +32,7 @@ component ALU is
     shift_amount: in std_logic;
     ALU_control_signal: in std_logic_vector(3 downto 0);
     branch: in std_logic;
+    branch_ongte: in std_logic;
     result: out std_logic_vector(15 downto 0);
     zero: out std_logic
   );
@@ -76,6 +77,7 @@ component main_control is
     ext_op: out std_logic;
     ALU_src: out std_logic;
     branch: out std_logic;
+    branch_ongte: out std_logic;
     jump: out std_logic;
     ALU_op: out std_logic;
     mem_write: out std_logic;
@@ -149,6 +151,7 @@ signal aux_14: std_logic_vector(3 downto 0);
 signal aux_15: std_logic_vector(15 downto 0);
 signal aux_16: std_logic_vector(15 downto 0);
 signal aux_17: std_logic_vector(15 downto 0);
+signal q_01: std_logic;
 signal q_1: std_logic;
 signal q_2: std_logic;
 signal q_3: std_logic;
@@ -214,6 +217,7 @@ begin
         ext_op => q_2,
         ALU_src => q_3,
         branch => q_4,
+        branch_ongte => q_01,
         jump => q_5,
         ALU_op => q_6,
         mem_write => q_7,
@@ -231,6 +235,7 @@ begin
         shift_amount => q_10,
         ALU_control_signal => aux_14,
         branch => q_4,
+        branch_ongte => q_01,
         result => aux_11,
         zero => q_11
         );
