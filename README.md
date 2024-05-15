@@ -36,7 +36,7 @@ Project for the Computer Architecture course
       - logic shift to the right by a shift amount [[0|1]011].
       - AND [X100].
       - OR [X101].
-      - arithmetic shift to the right by a shift amount [110].
+      - arithmetic shift to the right by a shift amount [[0|1]110].
       - XOR [X111].
     - [001] add immediate.
     - [010] load word.
