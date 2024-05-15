@@ -27,12 +27,38 @@ Project for the Computer Architecture course
     - 7 acts as the reset switch: takes the MIPS back to the initial stage.
     - 8 does nothing
     - 9 to 16 selects the address in the data memory whose contents are displayed.
+ - ISA:
+   _Note: [first bits in the instruction] instruction_name [last bits in the instruction]._
+    - [000]arithmetic operations:
+      - addition [X000].
+      - subtraction [X001].
+      - logic shift to the left by a shift amount [[0|1]010].
+      - logic shift to the right by a shift amount [[0|1]011].
+      - AND [X100].
+      - OR [X101].
+      - arithmetic shift to the right by a shift amount [110].
+      - XOR [X111].
+    - [001] add immediate.
+    - [010] load word.
+    - [011] store word.
+    - [100] branch on equal.
+    - [101] AND immediate.
+    - [110] branch on greater than 0.
+    - [111] jump.
       
 _Note 1: The bus sizes of this MIPS processor allow for a data memory and an instruction memory of up to 65536 (2^16) locations. This design is limited to 256 locations because there is no need for such a huge space of addresses and my computer found the design somehow unsinthesizable (too big of a number)._
 
 _Note 2: For the processor to work in a full 16-bit mode the roles of the switches has to be modified (all 16 switches would be needed to navigate through a memory of size 2^16 for example)._
 
+_Note 3: There are three types of instructions, all use 16 bits:_
+- R-type: [000] register_source[3] register_target[3] register_destination[3] operation_code[4].
+- I-type: [001:110] register_source[3] register_target[3] immediate[7].
+- J-type: [111] jump_address[13].
+
+_Note 4: name[X] extends into a string of X bits that takes the role 'name'._
+
 ![image](https://github.com/l7aur/Single-Cycle-MIPS/assets/81981519/8b40b451-72f8-4635-ad34-fe9172a5d8d4)
+
 ![image](https://github.com/l7aur/Single-Cycle-MIPS16-Processor/assets/81981519/e1f789b7-d93a-4568-bc77-0108181f695e)
 
 
