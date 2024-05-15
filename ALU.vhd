@@ -12,7 +12,7 @@ entity ALU is
     branch_ongte: in std_logic;
     andi_signal: in std_logic;
     result: out std_logic_vector(15 downto 0);
-    zero: out std_logic
+    do_branch: out std_logic
   );
 end ALU;
 
@@ -22,26 +22,26 @@ signal intermediary_result: std_logic_vector(15 downto 0);
 
 begin
     result <= intermediary_result;
-    zero_process: process(branch, branch_ongte, operand_1, operand_2)
+    branch_process: process(branch, branch_ongte, operand_1, operand_2)
     begin
         if branch = '1' then
             if operand_1 = operand_2 then
-                zero <= '1';
+                do_branch <= '1';
             else
-                zero <= '0';
+                do_branch <= '0';
             end if;
         elsif branch_ongte = '1' then
             if operand_1 - operand_2 >= 0 then
-                zero <= '1';
+                do_branch <= '1';
             else
-                zero <= '0';
+                do_branch <= '0';
             end if;
         else
-            zero <= '0';
+            do_branch <= '0';
         end if;
     end process;
     
-    ALU_process: process(ALU_control_signal, operand_1, operand_2, shift_amount)
+    ALU_process: process(ALU_control_signal, operand_1, operand_2, shift_amount, andi_signal)
     begin
         if ALU_control_signal(3) = '1' then
             case ALU_control_signal(2 downto 0) is
