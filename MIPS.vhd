@@ -35,7 +35,7 @@ component ALU is
     branch_ongte: in std_logic;
     andi_signal: in std_logic;
     result: out std_logic_vector(15 downto 0);
-    zero: out std_logic
+    do_branch: out std_logic
   );
 end component;
 component ALU_control is
@@ -242,7 +242,7 @@ begin
         branch_ongte => q_01,
         andi_signal => q_02,
         result => aux_11,
-        zero => q_11
+        do_branch => q_11
         );
         c7: mux2_1 generic map(
         BUS_SIZE => 16
